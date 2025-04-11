@@ -7,17 +7,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.tooling.preview.Preview
 
+@Preview
 @Composable
 fun FullscreenOverlayFloat(onTap: ((Offset) -> Unit)? = null) {
-  Box(
-    modifier = Modifier
-      .fillMaxSize()
-      .pointerInput(Unit) {
-        detectTapGestures(
-          onTap = onTap
-        )
-      }
-  )
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = onTap
+                )
+            }
+    )
 }
 
