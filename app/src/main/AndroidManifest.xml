@@ -2,14 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Permission to draw over other apps -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <!-- Permission to run a foreground service -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!-- Permission for special use foreground service (Android 14+) -->
-    <!-- You can adjust this based on your use case. See: https://developer.android.com/develop/background-work/services/fg-service-types -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <application
@@ -20,16 +16,10 @@
         android:theme="@style/Theme.CameraOverlay"
         tools:targetApi="33">
 
-        <!-- Foreground service declaration -->
-        <!-- This service is crucial for drawing content over other apps -->
-        <!-- The foregroundServiceType should match your use case. Options include:
-             - dataSync, mediaPlayback, phoneCall, location, connectedDevice, mediaProjection, camera, microphone
-             - If none of these fit, use "specialUse" as shown here -->
         <service
             android:name="io.github.luiisca.floating.views.FloatingViewsService"
             android:enabled="true"
             android:foregroundServiceType="specialUse">
-            <!-- Required for "specialUse" type. Describe your use case for app store review -->
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Describe your special use case here" />
