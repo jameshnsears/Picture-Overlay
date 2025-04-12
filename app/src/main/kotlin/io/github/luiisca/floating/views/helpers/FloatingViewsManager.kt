@@ -7,7 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import androidx.core.content.ContextCompat
-import camera.overlay.R
+import picture.overlay.R
 import io.github.luiisca.floating.views.FloatingViewsConfig
 import io.github.luiisca.floating.views.FloatingViewsService
 

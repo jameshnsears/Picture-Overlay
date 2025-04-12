@@ -1,4 +1,4 @@
-package camera.overlay.ui.theme
+package picture.overlay.theme
 
 import androidx.compose.ui.graphics.Color
 

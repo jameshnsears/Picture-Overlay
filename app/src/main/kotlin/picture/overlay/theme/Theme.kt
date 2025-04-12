@@ -1,4 +1,4 @@
-package camera.overlay.ui.theme
+package picture.overlay.theme
 
 import android.app.Activity
 import android.os.Build

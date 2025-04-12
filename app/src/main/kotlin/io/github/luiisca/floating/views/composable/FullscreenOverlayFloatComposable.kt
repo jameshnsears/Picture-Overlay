@@ -1,4 +1,4 @@
-package io.github.luiisca.floating.views.ui
+package io.github.luiisca.floating.views.composable
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box

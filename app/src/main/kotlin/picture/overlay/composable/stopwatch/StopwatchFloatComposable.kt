@@ -1,4 +1,4 @@
-package camera.overlay.ui.stopwatch
+package picture.overlay.composable.stopwatch
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

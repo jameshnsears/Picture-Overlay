@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CameraOverlay"
+        android:theme="@style/Theme.PictureOverlay"
         tools:targetApi="33">
 
         <service
@@ -26,9 +26,9 @@
         </service>
 
         <activity
-            android:name="camera.overlay.MainActivity"
+            android:name="picture.overlay.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.CameraOverlay"
+            android:theme="@style/Theme.PictureOverlay"
             android:windowSoftInputMode="adjustResize"> <!-- insets support -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package io.github.luiisca.floating.views.ui
+package io.github.luiisca.floating.views.composable
 
 import android.graphics.PointF
 import androidx.compose.foundation.layout.Box
@@ -7,12 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.layout.onSizeChanged
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntSize
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-@Preview
 @Composable
 fun CloseFloat(
     modifier: Modifier = Modifier,

@@ -1,4 +1,4 @@
-package camera.overlay.ui.theme
+package picture.overlay.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

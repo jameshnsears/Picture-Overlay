@@ -1,4 +1,4 @@
-package camera.overlay
+package picture.overlay
 
 import org.junit.Assert.*
 import org.junit.Test

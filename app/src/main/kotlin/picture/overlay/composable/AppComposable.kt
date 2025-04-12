@@ -1,4 +1,4 @@
-package camera.overlay
+package picture.overlay.composable
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,8 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import camera.overlay.ui.stopwatch.StopwatchCloseFloat
-import camera.overlay.ui.stopwatch.StopwatchFloat
+import picture.overlay.composable.stopwatch.StopwatchCloseFloat
+import picture.overlay.composable.stopwatch.StopwatchFloat
 import io.github.luiisca.floating.views.CloseFloatConfig
 import io.github.luiisca.floating.views.ExpandedFloatConfig
 import io.github.luiisca.floating.views.FloatingViewsConfig
@@ -40,8 +40,8 @@ fun App() {
 
         Column(
             modifier = Modifier
-              .fillMaxSize()
-              .padding(16.dp),
+                .fillMaxSize()
+                .padding(16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

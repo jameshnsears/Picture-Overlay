@@ -1,21 +1,17 @@
-package camera.overlay
+package picture.overlay
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import camera.overlay.ui.theme.Theme
+import picture.overlay.composable.App
+import picture.overlay.theme.Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // insets support
         enableEdgeToEdge()
-//        FloatingViewsManager.setNotificationProperties(
-//            R.drawable.ic_launcher_foreground,
-//            "Floating views running"
-//        )
 
         setContent {
             Theme {

@@ -36,13 +36,13 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.app.ServiceCompat
-import camera.overlay.R
+import picture.overlay.R
 import io.github.luiisca.floating.views.helpers.FloatingViewsManager
 import io.github.luiisca.floating.views.helpers.NotificationHelper
 import io.github.luiisca.floating.views.helpers.toPx
-import io.github.luiisca.floating.views.ui.CloseFloat
-import io.github.luiisca.floating.views.ui.DraggableFloat
-import io.github.luiisca.floating.views.ui.FullscreenOverlayFloat
+import io.github.luiisca.floating.views.composable.CloseFloat
+import io.github.luiisca.floating.views.composable.DraggableFloat
+import io.github.luiisca.floating.views.composable.FullscreenOverlayFloat
 
 enum class CloseBehavior {
     MAIN_SNAPS_TO_CLOSE_FLOAT,

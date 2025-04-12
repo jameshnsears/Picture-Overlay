@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "camera.overlay"
+    namespace = "picture.overlay"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "camera.overlay"
+        applicationId = "picture.overlay"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "{versionCode}{libs.versions.minSdk.get()}{libs.versions.targetSdk.get()}"
+        versionName = "${versionCode}${libs.versions.minSdk.get()}${libs.versions.targetSdk.get()}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -52,6 +52,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.junit.ktx)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
