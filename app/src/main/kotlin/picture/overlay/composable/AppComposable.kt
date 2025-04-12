@@ -54,6 +54,7 @@ fun App() {
                             // Add other main float configurations here
                         ),
 
+                        // TODO JS - Expanded is what happens when you click on the stopwatch
                         expanded = ExpandedOverlayEventInterface(
                             enabled = false,
                             // Add other expanded float configurations here
