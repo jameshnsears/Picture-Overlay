@@ -1,8 +1,9 @@
-package io.github.luiisca.floating.views
+package io.github.luiisca.floating.views.service
 
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
+import io.github.luiisca.floating.views.FloatingViewsController
 import io.github.luiisca.floating.views.helpers.ConfigManager
 import io.github.luiisca.floating.views.helpers.FloatServiceStateManager
 

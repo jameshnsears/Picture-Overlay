@@ -1,6 +1,6 @@
 package io.github.luiisca.floating.views.helpers
 
-import io.github.luiisca.floating.views.FloatingViewsConfig
+import io.github.luiisca.floating.views.data.FloatingViewsConfig
 import java.util.UUID
 
 object ConfigManager {

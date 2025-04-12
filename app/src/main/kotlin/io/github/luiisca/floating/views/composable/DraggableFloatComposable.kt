@@ -44,7 +44,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import io.github.luiisca.floating.views.CloseBehavior
-import io.github.luiisca.floating.views.FloatingViewsConfig
+import io.github.luiisca.floating.views.data.FloatingViewsConfig
 import io.github.luiisca.floating.views.helpers.getScreenSizeWithoutInsets
 import kotlin.math.abs
 import kotlin.math.roundToInt

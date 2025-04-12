@@ -5,10 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import androidx.core.content.ContextCompat
-import picture.overlay.R
-import io.github.luiisca.floating.views.FloatingViewsConfig
-import io.github.luiisca.floating.views.FloatingViewsService
 import androidx.core.net.toUri
+import io.github.luiisca.floating.views.data.FloatingViewsConfig
+import io.github.luiisca.floating.views.service.FloatingViewsService
+import picture.overlay.R
 
 object FloatingViewsManager {
     var notificationIcon: Int = R.drawable.picure_overlay_24

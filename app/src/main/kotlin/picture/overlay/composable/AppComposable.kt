@@ -20,14 +20,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import picture.overlay.composable.stopwatch.StopwatchCloseFloat
-import picture.overlay.composable.stopwatch.StopwatchFloat
-import io.github.luiisca.floating.views.CloseFloatConfig
-import io.github.luiisca.floating.views.ExpandedFloatConfig
-import io.github.luiisca.floating.views.FloatingViewsConfig
-import io.github.luiisca.floating.views.MainFloatConfig
+import io.github.luiisca.floating.views.data.CloseFloatConfigData
+import io.github.luiisca.floating.views.event.ExpandedFloatConfigInterface
+import io.github.luiisca.floating.views.data.FloatingViewsConfig
+import io.github.luiisca.floating.views.event.MainFloatConfigInterface
 import io.github.luiisca.floating.views.helpers.FloatServiceStateManager
 import io.github.luiisca.floating.views.helpers.FloatingViewsManager
+import picture.overlay.composable.stopwatch.StopwatchCloseFloat
+import picture.overlay.composable.stopwatch.StopwatchFloat
 
 @Preview
 @Composable
@@ -50,15 +50,15 @@ fun App() {
                 modifier = Modifier.widthIn(min = 200.dp, max = 300.dp),
                 onClick = {
                     val config = FloatingViewsConfig(
-                        main = MainFloatConfig(
+                        main = MainFloatConfigInterface(
                             composable = { StopwatchFloat() },
                             // Add other main float configurations here
                         ),
-                        close = CloseFloatConfig(
+                        close = CloseFloatConfigData(
                             composable = { StopwatchCloseFloat() },
                             // Add other close float configurations here
                         ),
-                        expanded = ExpandedFloatConfig(
+                        expanded = ExpandedFloatConfigInterface(
                             enabled = false,
                             // Add other expanded float configurations here
                         )
