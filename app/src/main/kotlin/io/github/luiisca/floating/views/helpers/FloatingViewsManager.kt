@@ -11,8 +11,8 @@ import io.github.luiisca.floating.views.FloatingViewsService
 import androidx.core.net.toUri
 
 object FloatingViewsManager {
-    var notificationIcon: Int = R.drawable.round_bubble_chart_24
-    var notificationTitle: String = "Floating views running"
+    var notificationIcon: Int = R.drawable.picure_overlay_24
+    var notificationTitle: String = "Picture Overlay running"
 
     fun setNotificationProperties(icon: Int? = null, title: String? = null) {
         if (icon != null) {
