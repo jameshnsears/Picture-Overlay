@@ -10,8 +10,8 @@ import androidx.core.app.NotificationManagerCompat
 
 class NotificationHelper(
     private val context: Context,
-    private val channelId: String = "floating_views_service",
-    private val channelName: String = "Picture Overlay views",
+    private val channelId: String = "picture_overlay_service",
+    private val channelName: String = "Picture Overlay Service",
     val notificationId: Int = 101,
 ) {
     fun createNotificationChannel() {

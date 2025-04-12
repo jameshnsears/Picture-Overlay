@@ -12,7 +12,7 @@ import androidx.core.net.toUri
 
 object FloatingViewsManager {
     var notificationIcon: Int = R.drawable.picure_overlay_24
-    var notificationTitle: String = "Picture Overlay running"
+    var notificationTitle: String = "Picture Overlay is running"
 
     fun setNotificationProperties(icon: Int? = null, title: String? = null) {
         if (icon != null) {
@@ -23,13 +23,6 @@ object FloatingViewsManager {
         }
     }
 
-    /**
-     * Starts the floating service if the overlay permission is granted, or requests the permission otherwise.
-     *
-     * @param context The service context
-     * @param config The config [FloatingViewsConfig] to use for this dynamic floating view
-     * @param serviceClass The class of the service to be started.
-     */
     fun startFloatServiceIfPermitted(
         context: Context,
         config: FloatingViewsConfig,
@@ -45,12 +38,6 @@ object FloatingViewsManager {
         }
     }
 
-    /**
-     * Stops the floating service if running.
-     *
-     * @param context The service context
-     * @param serviceClass The class of the service to be stopped.
-     */
     fun stopFloatService(
         context: Context,
         serviceClass: Class<*> = FloatingViewsService::class.java

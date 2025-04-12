@@ -14,8 +14,4 @@ object ConfigManager {
     }
 
     fun getConfig(id: String): FloatingViewsConfig? = configs[id]
-
-    fun removeConfig(id: String) {
-        configs.remove(id)
-    }
 }
