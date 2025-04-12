@@ -1,4 +1,5 @@
 [versions]
+versionCode = "1"
 compileSdk = "35"
 minSdk = "24"
 targetSdk = "35"
@@ -16,6 +17,7 @@ mockk = "1.13.17"
 timber = "5.0.1"
 junit = "1.2.1"
 leakcanary-android = "2.14"
+kotlin-test = "2.1.20"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -42,6 +44,7 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 androidx-junit-ktx = { module = "androidx.test.ext:junit-ktx", version.ref = "junit" }
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary-android" }
+org-jetbrains-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

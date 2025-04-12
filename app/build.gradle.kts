@@ -12,8 +12,8 @@ android {
         applicationId = "picture.overlay"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "${versionCode}${libs.versions.minSdk.get()}${libs.versions.targetSdk.get()}"
+        versionCode = libs.versions.versionCode.get().toInt()
+        versionName = "${versionCode}${minSdk}${targetSdk}"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -52,10 +52,10 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.junit.ktx)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
+    implementation(libs.androidx.junit.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.dynamic.animation)
     implementation(libs.androidx.saved.state)
@@ -76,5 +76,5 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
     implementation(libs.androidx.navigation.compose)
 
-    testImplementation(kotlin("test"))
+    testImplementation(libs.org.jetbrains.kotlin.test)
 }

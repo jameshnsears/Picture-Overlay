@@ -39,7 +39,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
@@ -66,7 +65,6 @@ enum class InterruptMovState {
     CLOSE_DRAGGING,
 }
 
-@Preview
 @Composable
 fun DraggableFloat(
     modifier: Modifier = Modifier,

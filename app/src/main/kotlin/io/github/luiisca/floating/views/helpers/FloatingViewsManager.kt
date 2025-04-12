@@ -3,13 +3,12 @@ package io.github.luiisca.floating.views.helpers
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.provider.Settings
 import androidx.core.content.ContextCompat
 import picture.overlay.R
 import io.github.luiisca.floating.views.FloatingViewsConfig
 import io.github.luiisca.floating.views.FloatingViewsService
+import androidx.core.net.toUri
 
 object FloatingViewsManager {
     var notificationIcon: Int = R.drawable.round_bubble_chart_24
@@ -59,21 +58,13 @@ object FloatingViewsManager {
         context.stopService(Intent(context, serviceClass))
     }
 
-    /**
-     * Display over other apps permission is not needed for versions older than M
-     */
-    private fun canDrawOverlays(context: Context): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return true
-        }
-        return Settings.canDrawOverlays(context)
-    }
+    private fun canDrawOverlays(context: Context) = Settings.canDrawOverlays(context)
 
     private fun requestOverlayPermission(context: Context) {
         @SuppressLint("InlinedApi")
         val intent = Intent(
             Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-            Uri.parse("package:${context.packageName}")
+            "package:${context.packageName}".toUri()
         )
         context.startActivity(intent)
     }
