@@ -14,15 +14,6 @@ object FloatingViewsManager {
     var notificationIcon: Int = R.drawable.picure_overlay_24
     var notificationTitle: String = "Picture Overlay is running"
 
-    fun setNotificationProperties(icon: Int? = null, title: String? = null) {
-        if (icon != null) {
-            notificationIcon = icon
-        }
-        if (title != null) {
-            notificationTitle = title
-        }
-    }
-
     fun startFloatServiceIfPermitted(
         context: Context,
         config: FloatingViewsConfig,
