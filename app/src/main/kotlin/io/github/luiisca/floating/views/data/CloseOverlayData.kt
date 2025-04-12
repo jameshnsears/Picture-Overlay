@@ -11,7 +11,7 @@ import androidx.compose.animation.core.spring
 import androidx.compose.runtime.Composable
 import io.github.luiisca.floating.views.CloseBehavior
 
-data class CloseFloatConfigData(
+data class CloseOverlayData(
     val enabled: Boolean = true,
     val composable: (@Composable () -> Unit)? = null,
     val viewFactory: ((Context) -> View)? = null,

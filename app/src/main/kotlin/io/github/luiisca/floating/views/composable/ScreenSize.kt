@@ -1,4 +1,4 @@
-package io.github.luiisca.floating.views.helpers
+package io.github.luiisca.floating.views.composable
 
 import android.content.Context
 import android.os.Build

@@ -8,8 +8,8 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.core.app.ServiceCompat
-import io.github.luiisca.floating.views.data.FloatingViewsConfig
-import io.github.luiisca.floating.views.helpers.FloatingViewsManager
+import io.github.luiisca.floating.views.data.OverlayConfigData
+import io.github.luiisca.floating.views.helpers.OverlayHelper
 import io.github.luiisca.floating.views.helpers.NotificationHelper
 
 enum class CloseBehavior {
@@ -17,11 +17,11 @@ enum class CloseBehavior {
     CLOSE_SNAPS_TO_MAIN_FLOAT,
 }
 
-class FloatingViewsController(
+class OverlayController(
     private val context: Context,
     private val stopService: () -> Unit,
 ) {
-    private val composeOwner = FloatingLifecycleOwner()
+    private val composeOwner = OverlayLifecycleOwner()
     private var isComposeOwnerInit: Boolean = false
     private val windowManager = context.getSystemService(Service.WINDOW_SERVICE) as WindowManager
     private var floatsCount: Int = 0
@@ -33,8 +33,8 @@ class FloatingViewsController(
 
         val notificationHelper = NotificationHelper(service)
         notificationHelper.createNotificationChannel()
-        val notificationIcon: Int = icon ?: FloatingViewsManager.notificationIcon
-        val notificationTitle: String = title ?: FloatingViewsManager.notificationTitle
+        val notificationIcon: Int = icon ?: OverlayHelper.notificationIcon
+        val notificationTitle: String = title ?: OverlayHelper.notificationTitle
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ServiceCompat.startForeground(
@@ -51,10 +51,10 @@ class FloatingViewsController(
         }
     }
 
-    fun startDynamicFloatingView(config: FloatingViewsConfig) {
+    fun startDynamicFloatingView(config: OverlayConfigData) {
         floatsCount += 1
 
-        CreateFloatViews(
+        CreateOverlay(
             context,
             config,
             getFloatsCount = { floatsCount },

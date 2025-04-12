@@ -5,7 +5,7 @@ import android.graphics.PointF
 import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.animation.core.Transition
 
-interface FloatConfigInterface : EventCallbacksInterface {
+interface SnapOverlayEventInterface : OverlayEventInterface {
     var startPointDp: PointF?
     var startPointPx: PointF?
     var draggingTransitionSpec: (Transition.Segment<Point>.() -> FiniteAnimationSpec<Int>)

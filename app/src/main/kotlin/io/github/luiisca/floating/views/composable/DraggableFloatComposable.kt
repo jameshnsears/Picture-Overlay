@@ -44,8 +44,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import io.github.luiisca.floating.views.CloseBehavior
-import io.github.luiisca.floating.views.data.FloatingViewsConfig
-import io.github.luiisca.floating.views.helpers.getScreenSizeWithoutInsets
+import io.github.luiisca.floating.views.data.OverlayConfigData
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
@@ -73,7 +72,7 @@ fun DraggableFloat(
     closeView: ComposeView,
     layoutParams: WindowManager.LayoutParams,
     closeLayoutParams: WindowManager.LayoutParams,
-    config: FloatingViewsConfig,
+    config: OverlayConfigData,
     updateSize: (size: IntSize) -> Unit,
     onKey: (event: KeyEvent) -> Boolean,
     onDestroy: (() -> Unit)? = null,
@@ -691,7 +690,7 @@ private fun followFloat(
     targetContentSize: IntSize,
     dragAmount: Offset,
     screenSize: IntSize,
-    config: FloatingViewsConfig,
+    config: OverlayConfigData,
 ): Point {
     val followerInitialCenter = PointF(
         followerInitialPoint.x + followerContentSize.width / 2f,
@@ -736,7 +735,7 @@ private fun followFloat(
 
 private fun getCloseInitialPoint(
     density: Density,
-    config: FloatingViewsConfig,
+    config: OverlayConfigData,
     contentSize: IntSize,
     screenSize: IntSize,
 ): Point {

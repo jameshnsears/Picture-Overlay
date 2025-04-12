@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun StopwatchCloseFloat() {
+fun StopwatchCloseComposable() {
     Box(
         modifier = Modifier
             .size(40.dp)

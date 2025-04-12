@@ -12,9 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.PointerInputChange
 
-data class MainFloatConfigInterface(
-    val composable: (@Composable () -> Unit)? = null,
-    val viewFactory: ((Context) -> View)? = null,
+data class ExpandedOverlayEventInterface(
+    val enabled: Boolean = true,
+    val tapOutsideToClose: Boolean = true,
+    val dimAmount: Float = 0.5f,
+    val composable: (@Composable (close: () -> Unit) -> Unit)? = null,
+    val viewFactory: ((context: Context, close: () -> Unit) -> View)? = null,
     override var startPointDp: PointF? = null,
     override var startPointPx: PointF? = null,
     override var draggingTransitionSpec: (Transition.Segment<Point>.() -> FiniteAnimationSpec<Int>) = {
@@ -45,4 +48,4 @@ data class MainFloatConfigInterface(
         newAnimatedPoint: Point?
     ) -> Unit)? = null,
     override var onDragEnd: (() -> Unit)? = null,
-) : FloatConfigInterface
+) : SnapOverlayEventInterface

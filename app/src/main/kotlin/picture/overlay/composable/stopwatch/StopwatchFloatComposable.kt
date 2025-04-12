@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 
 @Preview
 @Composable
-fun StopwatchFloat() {
+fun StopwatchComposable() {
     var isRunning by remember { mutableStateOf(false) }
     var elapsedTime by remember { mutableLongStateOf(0L) }
     val coroutineScope = rememberCoroutineScope()

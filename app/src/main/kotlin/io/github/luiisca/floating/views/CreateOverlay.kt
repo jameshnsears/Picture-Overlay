@@ -2,6 +2,7 @@ package io.github.luiisca.floating.views
 
 import android.app.Service
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.PixelFormat
 import android.graphics.Point
 import android.os.Build
@@ -19,17 +20,18 @@ import io.github.luiisca.floating.views.composable.CloseFloat
 import io.github.luiisca.floating.views.composable.DefaultCloseButton
 import io.github.luiisca.floating.views.composable.DraggableFloat
 import io.github.luiisca.floating.views.composable.FullscreenOverlayFloat
-import io.github.luiisca.floating.views.data.FloatingViewsConfig
-import io.github.luiisca.floating.views.helpers.toPx
+import io.github.luiisca.floating.views.data.OverlayConfigData
 
-class CreateFloatViews(
+internal fun Float.toPx(): Float = (this * Resources.getSystem().displayMetrics.density)
+
+class CreateOverlay(
     private val context: Context,
-    private val config: FloatingViewsConfig,
+    private val config: OverlayConfigData,
     private val getFloatsCount: () -> Int,
     private val setFloatsCount: (newCount: Int) -> Unit,
     private val stopService: () -> Unit,
     private val addViewToTrackingList: (view: View) -> Unit,
-    private val composeOwner: FloatingLifecycleOwner,
+    private val composeOwner: OverlayLifecycleOwner,
     private val getIsComposeOwnerInit: () -> Boolean,
     private val setIsComposeOwnerInit: (bool: Boolean) -> Unit,
 ) {

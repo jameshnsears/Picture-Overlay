@@ -20,14 +20,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.github.luiisca.floating.views.data.CloseFloatConfigData
-import io.github.luiisca.floating.views.event.ExpandedFloatConfigInterface
-import io.github.luiisca.floating.views.data.FloatingViewsConfig
-import io.github.luiisca.floating.views.event.MainFloatConfigInterface
-import io.github.luiisca.floating.views.helpers.FloatServiceStateManager
-import io.github.luiisca.floating.views.helpers.FloatingViewsManager
-import picture.overlay.composable.stopwatch.StopwatchCloseFloat
-import picture.overlay.composable.stopwatch.StopwatchFloat
+import io.github.luiisca.floating.views.data.CloseOverlayData
+import io.github.luiisca.floating.views.event.ExpandedOverlayEventInterface
+import io.github.luiisca.floating.views.data.OverlayConfigData
+import io.github.luiisca.floating.views.event.ActiveOverlayEventInterface
+import io.github.luiisca.floating.views.service.OverlayServiceStateHelper
+import io.github.luiisca.floating.views.helpers.OverlayHelper
+import picture.overlay.composable.stopwatch.StopwatchCloseComposable
+import picture.overlay.composable.stopwatch.StopwatchComposable
 
 @Preview
 @Composable
@@ -36,7 +36,7 @@ fun App() {
         println(innerPadding)
 
         val context = LocalContext.current
-        val isServiceRunning by FloatServiceStateManager.isServiceRunning.collectAsState()
+        val isServiceRunning by OverlayServiceStateHelper.isServiceRunning.collectAsState()
 
         Column(
             modifier = Modifier
@@ -45,33 +45,49 @@ fun App() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Stopwatch Float
             Button(
                 modifier = Modifier.widthIn(min = 200.dp, max = 300.dp),
                 onClick = {
-                    val config = FloatingViewsConfig(
-                        main = MainFloatConfigInterface(
-                            composable = { StopwatchFloat() },
+                    val config = OverlayConfigData(
+                        main = ActiveOverlayEventInterface(
+                            composable = { StopwatchComposable() },
                             // Add other main float configurations here
                         ),
-                        close = CloseFloatConfigData(
-                            composable = { StopwatchCloseFloat() },
-                            // Add other close float configurations here
-                        ),
-                        expanded = ExpandedFloatConfigInterface(
+
+                        expanded = ExpandedOverlayEventInterface(
                             enabled = false,
                             // Add other expanded float configurations here
                         )
-                    )
+                        /*
+                        val expandedFloatConfig = ExpandedFloatConfig(
+                            enabled = true,
+                            tapOutsideToClose = true,
+                            dimAmount = 0.5f,
+                            composable = { close -> /* Expanded content */ }
+                        )
+                         */,
+
+                        close = CloseOverlayData(
+                            composable = { StopwatchCloseComposable() },
+                            // Add other close float configurations here
+                        ),
+                        /*
+                        val closeFloatConfig = CloseFloatConfig(
+                            enabled = true,
+                            composable = { /* Custom close button */ },
+                            closeBehavior = CloseBehavior.MAIN_SNAPS_TO_CLOSE_FLOAT
+                        )
+                         */
+
+                        )
 
                     // Launch a new stopwatch floating view
-                    FloatingViewsManager.startFloatServiceIfPermitted(context, config)
+                    OverlayHelper.startFloatServiceIfPermitted(context, config)
                 }
             ) {
                 Text(text = "Stopwatch", style = MaterialTheme.typography.bodyLarge)
             }
 
-            // Display a button to stop the service if it's running
             if (isServiceRunning) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(
@@ -81,7 +97,7 @@ fun App() {
                     ),
                     modifier = Modifier.widthIn(min = 200.dp, max = 300.dp),
                     onClick = {
-                        FloatingViewsManager.stopFloatService(context)
+                        OverlayHelper.stopFloatService(context)
                     }
                 ) {
                     Text(text = "Remove all", style = MaterialTheme.typography.bodyLarge)

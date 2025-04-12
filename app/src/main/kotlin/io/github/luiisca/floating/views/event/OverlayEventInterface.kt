@@ -4,7 +4,7 @@ import android.graphics.Point
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.PointerInputChange
 
-interface EventCallbacksInterface {
+interface OverlayEventInterface {
     var onTap: ((Offset) -> Unit)?
     var onDragStart: ((offset: Offset) -> Unit)?
     var onDrag: ((

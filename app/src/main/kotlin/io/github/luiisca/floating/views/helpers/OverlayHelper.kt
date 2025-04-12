@@ -6,22 +6,22 @@ import android.content.Intent
 import android.provider.Settings
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import io.github.luiisca.floating.views.data.FloatingViewsConfig
-import io.github.luiisca.floating.views.service.FloatingViewsService
+import io.github.luiisca.floating.views.data.OverlayConfigData
+import io.github.luiisca.floating.views.service.OverlayService
 import picture.overlay.R
 
-object FloatingViewsManager {
+object OverlayHelper {
     var notificationIcon: Int = R.drawable.picure_overlay_24
     var notificationTitle: String = "Picture Overlay is running"
 
     fun startFloatServiceIfPermitted(
         context: Context,
-        config: FloatingViewsConfig,
-        serviceClass: Class<*> = FloatingViewsService::class.java
+        config: OverlayConfigData,
+        serviceClass: Class<*> = OverlayService::class.java
     ) {
         if (canDrawOverlays(context)) {
             val intent = Intent(context, serviceClass).apply {
-                putExtra("CONFIG_ID", ConfigManager.addConfig(config))
+                putExtra("CONFIG_ID", ConfigHelper.addConfig(config))
             }
             ContextCompat.startForegroundService(context, intent)
         } else {
@@ -31,7 +31,7 @@ object FloatingViewsManager {
 
     fun stopFloatService(
         context: Context,
-        serviceClass: Class<*> = FloatingViewsService::class.java
+        serviceClass: Class<*> = OverlayService::class.java
     ) {
         context.stopService(Intent(context, serviceClass))
     }
