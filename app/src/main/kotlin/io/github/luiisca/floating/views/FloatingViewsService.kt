@@ -39,7 +39,6 @@ class FloatingViewsService : Service() {
     override fun onDestroy() {
         super.onDestroy()
 
-        // Removes all views added while the Service was alive
         floatingViewsController.stopAllDynamicFloatingViews()
         FloatServiceStateManager.setServiceRunning(false)
     }

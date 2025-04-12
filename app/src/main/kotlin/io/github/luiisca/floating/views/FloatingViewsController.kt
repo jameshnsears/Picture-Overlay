@@ -15,32 +15,21 @@ import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.consumeWindowInsets
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.pointer.PointerInputChange
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntSize
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.app.ServiceCompat
-import picture.overlay.R
 import io.github.luiisca.floating.views.helpers.FloatingViewsManager
 import io.github.luiisca.floating.views.helpers.NotificationHelper
 import io.github.luiisca.floating.views.helpers.toPx
 import io.github.luiisca.floating.views.composable.CloseFloat
+import io.github.luiisca.floating.views.composable.DefaultCloseButton
 import io.github.luiisca.floating.views.composable.DraggableFloat
 import io.github.luiisca.floating.views.composable.FullscreenOverlayFloat
 
@@ -763,27 +752,5 @@ class CreateFloatViews(
                 WindowManager.LayoutParams.TYPE_PHONE
             }
         }
-    }
-}
-
-@Preview
-@Composable
-fun DefaultCloseButton() {
-    val iconColor = if (isSystemInDarkTheme()) {
-        Color.White
-    } else {
-        Color.Black
-    }
-
-    Box(
-        modifier = Modifier.size(60.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.rounded_cancel_24),
-            contentDescription = "Close float view",
-            colorFilter = ColorFilter.tint(iconColor),
-            modifier = Modifier.size(60.dp)
-        )
     }
 }
