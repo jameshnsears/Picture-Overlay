@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 fun StopwatchCloseComposable() {
     Box(
         modifier = Modifier
-            .size(40.dp)
+            .size(100.dp)
             .clip(CircleShape)
             .background(MaterialTheme.colorScheme.secondary)
     ) {

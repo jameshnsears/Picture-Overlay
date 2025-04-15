@@ -3,11 +3,11 @@ package io.github.luiisca.floating.views.service
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import io.github.luiisca.floating.views.OverlayController
+import io.github.luiisca.floating.views.OverlayManager
 import io.github.luiisca.floating.views.helpers.ConfigHelper
 
 class OverlayService : Service() {
-    private lateinit var overlayController: OverlayController
+    private lateinit var overlayManager: OverlayManager
     override fun onBind(intent: Intent): IBinder {
         TODO("Return the communication channel to the service.")
     }
@@ -15,14 +15,14 @@ class OverlayService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        overlayController = OverlayController(
+        overlayManager = OverlayManager(
             this,
             stopService = { stopSelf() },
         )
 
         // elevate service to foreground status to make it less likely to be terminated by the system under memory pressure
-        overlayController.initializeAsForegroundService()
-        OverlayServiceStateHelper.setServiceRunning(true)
+        overlayManager.startForegroundService()
+        OverlayServiceState.setServiceRunning(true)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -31,7 +31,7 @@ class OverlayService : Service() {
         val configId = intent?.getStringExtra("CONFIG_ID") ?: return START_NOT_STICKY
         val config = ConfigHelper.getConfig(configId) ?: return START_NOT_STICKY
         // Creates and starts a new dynamic, interactive floating view.
-        overlayController.startDynamicFloatingView(config)
+        overlayManager.startDynamicFloatingView(config)
 
         return START_STICKY
     }
@@ -39,7 +39,7 @@ class OverlayService : Service() {
     override fun onDestroy() {
         super.onDestroy()
 
-        overlayController.stopAllDynamicFloatingViews()
-        OverlayServiceStateHelper.setServiceRunning(false)
+        overlayManager.stopAllDynamicFloatingViews()
+        OverlayServiceState.setServiceRunning(false)
     }
 }

@@ -20,7 +20,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class OverlayLifecycleOwner :
+class OverlayViewStorage :
     LifecycleOwner, ViewModelStoreOwner, SavedStateRegistryOwner {
 
     private val lifecycleRegistry: LifecycleRegistry = LifecycleRegistry(this)
@@ -34,8 +34,11 @@ class OverlayLifecycleOwner :
         savedStateRegistryController.savedStateRegistry
 
     private var _view: View? = null
+    
     private var recomposer: Recomposer? = null
+
     private var runRecomposeScope: CoroutineScope? = null
+
     private var coroutineContext: CoroutineContext? = null
 
     fun attachToDecorView(decorView: View?) {

@@ -3,7 +3,7 @@ package io.github.luiisca.floating.views.service
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-object OverlayServiceStateHelper {
+object OverlayServiceState {
     private val _isServiceRunning = MutableStateFlow(false)
     val isServiceRunning: StateFlow<Boolean> = _isServiceRunning
 

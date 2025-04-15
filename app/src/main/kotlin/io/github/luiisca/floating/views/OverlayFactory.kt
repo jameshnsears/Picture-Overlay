@@ -24,14 +24,14 @@ import io.github.luiisca.floating.views.data.OverlayConfigData
 
 internal fun Float.toPx(): Float = (this * Resources.getSystem().displayMetrics.density)
 
-class CreateOverlay(
+class OverlayFactory(
     private val context: Context,
     private val config: OverlayConfigData,
     private val getFloatsCount: () -> Int,
     private val setFloatsCount: (newCount: Int) -> Unit,
     private val stopService: () -> Unit,
     private val addViewToTrackingList: (view: View) -> Unit,
-    private val composeOwner: OverlayLifecycleOwner,
+    private val composeOwner: OverlayViewStorage,
     private val getIsComposeOwnerInit: () -> Boolean,
     private val setIsComposeOwnerInit: (bool: Boolean) -> Unit,
 ) {

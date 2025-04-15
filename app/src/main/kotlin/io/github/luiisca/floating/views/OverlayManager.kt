@@ -17,17 +17,17 @@ enum class CloseBehavior {
     CLOSE_SNAPS_TO_MAIN_FLOAT,
 }
 
-class OverlayController(
+class OverlayManager(
     private val context: Context,
     private val stopService: () -> Unit,
 ) {
-    private val composeOwner = OverlayLifecycleOwner()
+    private val composeOwner = OverlayViewStorage()
     private var isComposeOwnerInit: Boolean = false
     private val windowManager = context.getSystemService(Service.WINDOW_SERVICE) as WindowManager
     private var floatsCount: Int = 0
     private val addedViews = mutableListOf<View>()
 
-    fun initializeAsForegroundService(icon: Int? = null, title: String? = null) {
+    fun startForegroundService(icon: Int? = null, title: String? = null) {
         val service = context as? Service
             ?: throw IllegalStateException("This function must be called from a Service context")
 
@@ -54,7 +54,7 @@ class OverlayController(
     fun startDynamicFloatingView(config: OverlayConfigData) {
         floatsCount += 1
 
-        CreateOverlay(
+        OverlayFactory(
             context,
             config,
             getFloatsCount = { floatsCount },

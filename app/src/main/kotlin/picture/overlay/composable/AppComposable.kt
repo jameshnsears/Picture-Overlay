@@ -24,7 +24,7 @@ import io.github.luiisca.floating.views.data.CloseOverlayData
 import io.github.luiisca.floating.views.event.ExpandedOverlayEventInterface
 import io.github.luiisca.floating.views.data.OverlayConfigData
 import io.github.luiisca.floating.views.event.ActiveOverlayEventInterface
-import io.github.luiisca.floating.views.service.OverlayServiceStateHelper
+import io.github.luiisca.floating.views.service.OverlayServiceState
 import io.github.luiisca.floating.views.helpers.OverlayHelper
 import picture.overlay.composable.stopwatch.StopwatchCloseComposable
 import picture.overlay.composable.stopwatch.StopwatchComposable
@@ -36,7 +36,7 @@ fun App() {
         println(innerPadding)
 
         val context = LocalContext.current
-        val isServiceRunning by OverlayServiceStateHelper.isServiceRunning.collectAsState()
+        val isServiceRunning by OverlayServiceState.isServiceRunning.collectAsState()
 
         Column(
             modifier = Modifier
@@ -57,7 +57,6 @@ fun App() {
                         // TODO JS - Expanded is what happens when you click on the stopwatch
                         expanded = ExpandedOverlayEventInterface(
                             enabled = false,
-                            // Add other expanded float configurations here
                         )
                         /*
                         val expandedFloatConfig = ExpandedFloatConfig(
@@ -70,7 +69,7 @@ fun App() {
 
                         close = CloseOverlayData(
                             composable = { StopwatchCloseComposable() },
-                            // Add other close float configurations here
+                            enabled = true,
                         ),
                         /*
                         val closeFloatConfig = CloseFloatConfig(
