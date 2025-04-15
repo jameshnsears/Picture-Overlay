@@ -17,7 +17,8 @@
         tools:targetApi="33">
 
         <service
-            android:name="io.github.luiisca.floating.views.service.OverlayService"
+
+        android:name="picture.overlay.wip.CircleOverlayService"
             android:enabled="true"
             android:foregroundServiceType="specialUse">
             <property
