@@ -31,15 +31,17 @@ fun OverlayPermissionScreen(
 
     val permissionGranted = viewModel.overlayPermissionGranted.value
 
+    // check if permission already granted
+    LaunchedEffect(Unit) {
+        viewModel.checkOverlayPermission(context)
+    }
+
+    // request permission if not granted
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) {
         viewModel.checkOverlayPermission(context)
     }
-
-//    LaunchedEffect(Unit) {
-//        viewModel.checkOverlayPermission(context)
-//    }
 
     Column(
         modifier = Modifier
