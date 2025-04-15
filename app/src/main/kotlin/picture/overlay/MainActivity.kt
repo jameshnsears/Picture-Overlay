@@ -22,6 +22,10 @@ class MainActivity : ComponentActivity() {
                 Scaffold { innerPadding ->
                     OverlayPermissionScreen()
                 }
+
+                // TODO have a button on OverlayPermissionScreen to Display Overlay
+
+                // TODO once permission is granted, use "Display Overlay" press to use navigation to move close OverlayPermissionScreen and display overlay
             }
         }
     }

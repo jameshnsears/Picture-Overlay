@@ -50,10 +50,6 @@ fun OverlayPermissionScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = if (permissionGranted) "Overlay permission is granted ✅"
-            else "Overlay permission is NOT granted ❌",
-        )
 
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -71,7 +67,21 @@ fun OverlayPermissionScreen(
         },
             enabled = !permissionGranted
         ) {
-            Text("Request Overlay Permission")
+            Text("Request Overlay Permission...")
+        }
+
+        Text(
+            text = if (permissionGranted) "Overlay permission is granted ✅"
+            else "Overlay permission is NOT granted ❌",
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(
+            onClick = {},
+            enabled = permissionGranted
+        ) {
+            Text("Display Overlay Control...")
         }
     }
 }
