@@ -1,4 +1,4 @@
-package picture.overlay.wip
+package picture.overlay.wip.composeable
 
 import android.content.Intent
 import android.provider.Settings
@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.core.net.toUri
+import picture.overlay.wip.OverlayPermissionViewModel
 
 @Preview
 @Composable
