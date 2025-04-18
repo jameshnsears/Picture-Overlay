@@ -316,11 +316,7 @@ class OverlayFactory(
             gravity = Gravity.TOP or Gravity.START
             format = PixelFormat.TRANSLUCENT
 
-            type = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
-            } else {
-                WindowManager.LayoutParams.TYPE_PHONE
-            }
+            type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
         }
     }
 }

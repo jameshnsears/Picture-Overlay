@@ -13,4 +13,10 @@ class OverlayPermissionViewModel : ViewModel() {
     fun checkOverlayPermission(context: Context) {
         _overlayPermissionGranted.value = Settings.canDrawOverlays(context)
     }
+
+    fun startServiceOverlayControl(context: Context) {
+        /*
+        OverlayControl
+         */
+    }
 }
